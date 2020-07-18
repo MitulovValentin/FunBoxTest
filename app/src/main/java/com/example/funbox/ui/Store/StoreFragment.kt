@@ -1,4 +1,4 @@
-package com.example.funbox.ui.home
+package com.example.funbox.ui.Store
 
 
 import android.os.Bundle
@@ -8,20 +8,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.funbox.InformationElectronics
-import com.example.funbox.Model.Electronics
 import com.example.funbox.R
-import io.realm.Realm
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.item_electronic.*
+import kotlinx.android.synthetic.main.fragment_store.*
 
-class HomeFragment : Fragment() {
+class StoreFragment : Fragment() {
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        val root = inflater.inflate(R.layout.fragment_store, container, false)
         return root
     }
 

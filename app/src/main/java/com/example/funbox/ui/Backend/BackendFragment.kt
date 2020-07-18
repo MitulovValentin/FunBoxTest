@@ -1,4 +1,4 @@
-package com.example.funbox.ui.notifications
+package com.example.funbox.ui.Backend
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.funbox.InformationElectronics
 import com.example.funbox.R
 import com.example.funbox.ui.Edit.EditActivity
-import kotlinx.android.synthetic.main.fragment_notifications.*
+import kotlinx.android.synthetic.main.fragment_backend.*
 
-class NotificationsFragment : Fragment() {
+class BackendFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class NotificationsFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
+        val root = inflater.inflate(R.layout.fragment_backend, container, false)
         return root
 
     }
