@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_front">
+
+    <fragment
+        android:id="@+id/navigation_front"
+        android:name="com.example.funbox.ui.home.HomeFragment"
+        android:label="@string/title_store_front"
+        tools:layout="@layout/fragment_home" />
+
+
+    <fragment
+        android:id="@+id/navigation_back"
+        android:name="com.example.funbox.ui.notifications.NotificationsFragment"
+        android:label="@string/title_back_end"
+        tools:layout="@layout/fragment_notifications" />
+
+
+</navigation>

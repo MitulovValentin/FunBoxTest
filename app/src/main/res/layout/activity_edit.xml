@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.Edit.EditActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="0dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_margin="6dp"
+                android:text="Отменить"
+                android:onClick="cancel"/>
+
+            <Button
+                android:id="@+id/btn_save_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="6dp"
+                android:text="Сохранить" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolBar_edit">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.16"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@android:color/black"
+            android:gravity="center_vertical"
+            android:paddingStart="6dp"
+            android:background="@drawable/shape_drawable"
+            android:text="Название"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.16"
+            android:background="@drawable/shape_drawable">
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:inputType="textMultiLine"
+                android:background="@drawable/shape_drawable"/>
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.16"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@android:color/black"
+            android:gravity="center_vertical"
+            android:background="@drawable/shape_drawable"
+            android:paddingStart="6dp"
+            android:text="Цена"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.16"
+            android:background="@drawable/shape_drawable">
+
+            <EditText
+                android:id="@+id/et_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:inputType="number"
+                android:background="@drawable/shape_drawable"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.16"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@android:color/black"
+            android:gravity="center_vertical"
+            android:background="@drawable/shape_drawable"
+            android:paddingStart="6dp"
+            android:text="Количество"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.16"
+            android:background="@drawable/shape_drawable">
+
+            <EditText
+                android:id="@+id/et_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:inputType="number"
+                android:background="@drawable/shape_drawable"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
