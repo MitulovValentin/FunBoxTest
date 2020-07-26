@@ -7,9 +7,11 @@ import com.example.funbox.Model.Electronics
 import com.example.funbox.R
 
 
-class ElectronicsAdapter (private val electronicsList:List<Electronics>, private val type: Int) : RecyclerView.Adapter<ElectronicsViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ElectronicsViewHolder {
+class ElectronicsAdapter (private val electronicsList:MutableList<Electronics>, private val type: Int) : RecyclerView.Adapter<ElectronicsViewHolder>() {
 
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ElectronicsViewHolder {
          when (type) {
             0 -> {
                 val root = LayoutInflater
@@ -26,14 +28,21 @@ class ElectronicsAdapter (private val electronicsList:List<Electronics>, private
         }
     }
 
-    override fun getItemCount(): Int = electronicsList.size
+    override fun getItemCount(): Int  = electronicsList.size
 
     override fun onBindViewHolder(holder: ElectronicsViewHolder, position: Int) {
         when (type) {
             0 -> return holder.bind(electronicsList[position])
             else -> return holder.back(electronicsList[position])
         }
+    }
+
+    fun update(electronicsList: MutableList<Electronics>?) {
+        electronicsList?.let{
+            notifyDataSetChanged()
+        }
 
     }
+
 }
 

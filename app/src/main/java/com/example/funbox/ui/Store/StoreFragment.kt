@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.funbox.InformationElectronics
 import com.example.funbox.R
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_store.*
 
 class StoreFragment : Fragment() {
@@ -26,4 +27,12 @@ class StoreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         InformationElectronics().setList(recyclerView_front_id,view.context,LinearLayoutManager.HORIZONTAL,0)
     }
+
+
+    override fun onResume() {
+        super.onResume()
+        InformationElectronics().setList(recyclerView_front_id, requireContext() ,LinearLayoutManager.HORIZONTAL,0)
+    }
+
+
 }
