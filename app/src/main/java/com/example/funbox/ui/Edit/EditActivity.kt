@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.example.funbox.DataBase.DatsBase
+import com.example.funbox.DataBase.DataBase
 import com.example.funbox.Model.Electronics
 import com.example.funbox.R
 import io.realm.Realm
@@ -36,7 +36,7 @@ class EditActivity : AppCompatActivity() {
         finish()
     }
 
-    fun save(id: Int?) {
+    private fun save(id: Int?) {
         btn_save_id.setOnClickListener {
             try {
                 val realm = Realm.getDefaultInstance()
@@ -44,8 +44,8 @@ class EditActivity : AppCompatActivity() {
 
 
                 if( id == null ) {
-                    realmObj.id = DatsBase().loadFromDB().size + 1
-                    if(DatsBase().loadFromDB().joinToString().contains(et_name.text.toString()) && et_name.text.toString() != "" ) {
+                    realmObj.id = DataBase().loadFromDB().size + 1
+                    if(DataBase().loadFromDB().joinToString().contains(et_name.text.toString()) && et_name.text.toString() != "" ) {
                         Toast.makeText(this, "Данное название уже существует!", Toast.LENGTH_SHORT).show()
                         return@setOnClickListener
                     }
@@ -63,9 +63,9 @@ class EditActivity : AppCompatActivity() {
                     Toast.makeText(this,  "Название должно состоять минимум из 4 букв", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
-                
+
                 realmObj.name = et_name.text.toString()
-                if( DatsBase().loadFromDB().joinToString().contains(et_name.text.toString()) && realmObj.name != firstName ) {
+                if( DataBase().loadFromDB().joinToString().contains(et_name.text.toString()) && realmObj.name != firstName ) {
                     Toast.makeText(this,  "Данное название уже существует!", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                     }
@@ -84,7 +84,7 @@ class EditActivity : AppCompatActivity() {
         }
     }
 
-    fun realmInit() {
+    private fun realmInit() {
         Realm.init(this)
         val config = RealmConfiguration.Builder()
             .name("dataBase")

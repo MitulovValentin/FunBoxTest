@@ -36,13 +36,5 @@ class ElectronicsAdapter (private val electronicsList:MutableList<Electronics>, 
             else -> return holder.back(electronicsList[position])
         }
     }
-
-    fun update(electronicsList: MutableList<Electronics>?) {
-        electronicsList?.let{
-            notifyDataSetChanged()
-        }
-
-    }
-
 }
 

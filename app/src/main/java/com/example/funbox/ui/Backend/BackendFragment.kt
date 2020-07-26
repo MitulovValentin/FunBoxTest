@@ -33,7 +33,7 @@ class BackendFragment : Fragment() {
         addNewElement(view)
     }
 
-    fun addNewElement(view:View){
+    private fun addNewElement(view:View){
         val addButton: ImageButton = view.findViewById(R.id.btn_add_new_element)
         addButton.setOnClickListener {
             val intent = Intent(view.context, EditActivity::class.java)

@@ -9,12 +9,10 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.funbox.DataBase.DatsBase
 import com.example.funbox.Model.Electronics
 import com.example.funbox.R
 import com.example.funbox.ui.Edit.EditActivity
 import io.realm.Realm
-import kotlinx.android.synthetic.main.activity_edit.*
 
 
 class ElectronicsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -40,11 +38,8 @@ class ElectronicsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
             buy(electronic)
 
         } catch (e: Exception) {
-            Log.wtf("TAG 78","bind error")
+            Log.wtf("MYTAG","bind error")
         }
-
-
-
     }
 
     fun back (electronic: Electronics) {
@@ -84,10 +79,8 @@ class ElectronicsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
                 } else {
                     Toast.makeText(itemView.context, "Данного товара нет в наличии", Toast.LENGTH_SHORT).show()
                 }
-
-
             } catch (e: Exception) {
-                Log.wtf("TAG77","WTF")
+                Log.wtf("MYTAG","Exception_Buy")
             }
         }
     }

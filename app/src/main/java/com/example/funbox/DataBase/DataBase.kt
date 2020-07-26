@@ -2,10 +2,8 @@ package com.example.funbox.DataBase
 
 import com.example.funbox.Model.Electronics
 import io.realm.Realm
-import io.realm.annotations.PrimaryKey
 
-
-class DatsBase() {
+class DataBase() {
 
 
     fun saveIntoDB(electronics: Electronics){

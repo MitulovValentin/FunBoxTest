@@ -6,7 +6,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.funbox.DataBase.DatsBase
+import com.example.funbox.DataBase.DataBase
 import com.example.funbox.Model.Electronics
 import io.realm.Realm
 import io.realm.RealmConfiguration
@@ -47,10 +47,10 @@ class MainActivity : AppCompatActivity() {
                 obj.price = tokens[1].substring(3,tokens[1].length - 2)
                 obj.quantity = tokens[2].substring(3,tokens[2].length - 3).toInt()
                 line = reader.readLine()
-                if(DatsBase().loadFromDB().joinToString().contains("id:${obj.id}")) {
+                if(DataBase().loadFromDB().joinToString().contains("id:${obj.id}")) {
                     Log.d("TAG77", "содержит")
                 } else {
-                    DatsBase().saveIntoDB(obj)
+                    DataBase().saveIntoDB(obj)
                     Log.d("TAG77", "Не содержит")
                 }
 
