@@ -26,4 +26,9 @@ class StoreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         InformationElectronics().setList(recyclerView_front_id,view.context,LinearLayoutManager.HORIZONTAL,0)
     }
+
+    override fun onResume() {
+        super.onResume()
+        InformationElectronics().setList(recyclerView_front_id,requireContext(),LinearLayoutManager.HORIZONTAL,0)
+    }
 }

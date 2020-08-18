@@ -24,9 +24,11 @@ class ElectronicsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
 
     fun bind(electronic: Electronics) {
         try{
+            buy(electronic)
             nameText.text = electronic.name
             priceText.text = electronic.price
             quantityText.text = electronic.quantity.toString()
+
             if(electronic.quantity > 0 ) {
                 itemView.visibility = View.VISIBLE
                 itemView.layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
@@ -35,7 +37,8 @@ class ElectronicsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
                 itemView.layoutParams = RecyclerView.LayoutParams(0,0)
             }
 
-            buy(electronic)
+
+
 
         } catch (e: Exception) {
             Log.wtf("MYTAG","bind error")
@@ -65,6 +68,7 @@ class ElectronicsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         val buttonBuy: Button = itemView.findViewById(R.id.btn_buy)
         buttonBuy.setOnClickListener {
             try{
+
                 val realm = Realm.getDefaultInstance()
                 val realmObj = Electronics()
                 if(electronics.quantity > 0) {
@@ -76,9 +80,11 @@ class ElectronicsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
                     realm.copyToRealmOrUpdate(realmObj)
                     realm.commitTransaction()
                     quantityText.text = electronics.quantity.toString()
+
                 } else {
                     Toast.makeText(itemView.context, "Данного товара нет в наличии", Toast.LENGTH_SHORT).show()
                 }
+
             } catch (e: Exception) {
                 Log.wtf("MYTAG","Exception_Buy")
             }

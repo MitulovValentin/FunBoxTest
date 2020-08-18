@@ -2,6 +2,7 @@ package com.example.funbox.DataBase
 
 import com.example.funbox.Model.Electronics
 import io.realm.Realm
+import io.realm.Sort
 
 class DataBase() {
 
@@ -15,7 +16,7 @@ class DataBase() {
 
     fun loadFromDB () : MutableList<Electronics> {
         val realm = Realm.getDefaultInstance()
-        return realm.where(Electronics::class.java).findAll()
+        return realm.where(Electronics::class.java).sort("quantity", Sort.DESCENDING).findAll()
     }
 
 }

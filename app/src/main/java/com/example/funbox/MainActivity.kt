@@ -6,18 +6,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.funbox.DataBase.DataBase
 import com.example.funbox.Model.Electronics
 import io.realm.Realm
 import io.realm.RealmConfiguration
+import kotlinx.android.synthetic.main.fragment_store.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.Exception
 import java.nio.charset.Charset
 
 class MainActivity : AppCompatActivity() {
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getInformation() {
-
         try {
             val inputStream = resources.openRawResource(R.raw.data)
             val reader = BufferedReader (InputStreamReader(inputStream, Charset.forName("UTF-8")))
@@ -67,5 +66,17 @@ class MainActivity : AppCompatActivity() {
             .deleteRealmIfMigrationNeeded()
             .build()
         Realm.setDefaultConfiguration(config)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        realmInit()
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navController = findNavController(R.id.nav_host_fragment)
+        navView.setupWithNavController(navController)
+
+        InformationElectronics().setList(recyclerView_front_id,this,
+            LinearLayoutManager.HORIZONTAL,0)
+
     }
 }

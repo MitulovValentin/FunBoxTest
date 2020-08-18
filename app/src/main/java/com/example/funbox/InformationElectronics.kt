@@ -16,7 +16,9 @@ class InformationElectronics {
         val list = DataBase().loadFromDB()
 
         val adapter = ElectronicsAdapter(list,type)
+        adapter.notifyDataSetChanged()
         recyclerView.adapter = adapter
+
 
 
         val layoutManager = LinearLayoutManager(context,orientation,false)
